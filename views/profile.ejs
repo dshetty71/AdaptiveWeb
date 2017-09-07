@@ -1,0 +1,99 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Adaptive Web Assignment-1</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body        { padding-top:1px; word-wrap:break-word; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="well">
+                <h2><span class="fa fa-user">  <%= user.username %><br></span> </h2>
+                    <strong>User Id</strong>: <%= user._id %><br>
+            </div>
+            <div class="well">
+                <div class="pre-scrollable">
+                        <strong>Action History</strong>:<br>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Target</th>
+                                </tr>
+                            </thead>
+                            <% if(actions.length){
+                                for(var i = 0;i < actions.length;i++) { %>
+                                    <tr>
+                                        <td><%=actions[i].action%></td>
+                                        <td><%=actions[i].target%></td>
+                                    </tr>
+                                <% }
+
+                            } %>
+                        </table>
+                </div>
+            </div>
+            <div class="well">
+                    <strong>Actions Captured</strong>:<br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>Page-Click</td>
+                            <td>Indicates anxiety level of the user. More clicks, more anxious</td>
+                        </tr>
+                        <tr>
+                            <td>Vote-Up</td>
+                            <td> Indicates whether the user is satisfied with the answer</td>
+                        </tr>
+                        <tr>
+                            <td>Vote-Down</td>
+                            <td>Indicates whether user is not satisfied with the answer</td>
+                        </tr>
+                        <tr>
+                            <td>Questions-Click</td>
+                            <td>Indicates whether user is checking related questions</td>
+                        </tr>
+                        <tr>
+                            <td>Reputation-Check</td>
+                            <td>Indicates user's criteria to determine whether the answer is veritable</td>
+                        </tr>
+                        <tr>
+                            <td>Suggest-Edit</td>
+                            <td>Indicates user is interested in the answer and would like to update it</td>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+        <div class="col-sm-5">
+                <div class="pre-scrollable">
+                    <div class = "well">
+                        <strong>Login History:</strong><br>
+                            <% if(logins.length){
+                                for(var i=0; i<logins.length; i++) {%>
+                                Login attempt at <%= logins[i].timestamp %> was successful<br>
+                                <% }
+                            } %>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

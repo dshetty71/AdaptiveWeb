@@ -1,0 +1,28 @@
+This folder contains solution for Adaptive Web Assigment-1. It required capturing user behavior on stackoverflow.com website and identifying 5 actions of interest.
+
+The solution for the assignment is build using Node.js, Express, MongoDb(hosted on MongoLab) - for persisting user and user action info and EJS templates for displaying content.
+
+APPLICATION VIEW STRUCTURE:
+
+The application uses embedded JS(EJS) templating for displaying content so there is no index.html file present. The views are provided by *.ejs files present in views folder. login.ejs, signup.ejs and profile.ejs represent the views for login, signup and profile respectively.
+
+PRE-REQUISITES:
+
+In order to run this code, node must be installed on the system. Yarn or npm can be used if you are planning to setup the system from scratch, ignoring packaged node_modules. Our recommendation would be to continue to the next step once node is installed.
+
+Next, open chrome and type chrome://extensions, selected developer mode and choose Load Unpacked Extension. In the dropdown, select the chrome-plugin folder provided here. After selection it, the 
+
+RUNNING THE APPLICATION:
+
+Once node is setup, ensure that the machine is connected to internet( as mongodb is setup on the cloud) and execute node server.js in the current folder. This would result in an entry "Listening to the port 9000" which is the port where the application is running.
+
+Open your browser and type http://localhost:9000 - this will take you to the home page of the application. The following user/credentials are already created for testing the application. You can use them to login or create your own using the signup button.
+
+USER 	PASSWORD
+aaa		123
+bbb		123
+ccc		123
+
+On successful login, you will arrive at the profile page which displays user details, login history, actions captured for the user and the reason why these actions were captured. For a new user, no actions will be present. You perform actions on stackoverflow that are captured by the plugin and sent to action storage endpoint in the application. 
+
+Contact dshetty4@asu.edu if you need have any questions.
